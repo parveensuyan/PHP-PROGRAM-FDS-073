@@ -1,3 +1,11 @@
+<?php 
+
+$error_log =  CheckValidation(); //function call
+if(empty($error_log)){
+    $error_log ['name'] =  $error_log ['email'] =  '';
+}
+print_r($error_log);
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +17,17 @@
 </head>
 <body>
 <div class="container">
-            <div class="maindiv">
+    <div class="maindiv">
     <div class="col-6">
-    <form action="<?=$_SERVER['PHP_SELF'];?>" method="post
-    ">
+    <form action="<?=$_SERVER['PHP_SELF'];?>" method="post">
     <label for="name">Name <span class = "error-msg" >*<span></label>
     <input type="text" class ="input-div-nn" id="name" name = "name"
                     value = "">
+    <p class="error-msg"><?php echo $error_log ['name'];?></p>
     <label for="email">Email <span class = "error-msg" >*<span></label>
     <input type="email" class ="input-div-nn" id="email" name = "email"
                     value = "">
+    <p class="error-msg"><?php echo $error_log ['email'];?></p>
     <label for="mobile">Mobile Number <span class = "error-msg" >*<span></label>
     <input type="text" class ="input-div-nn" id="mobile" name = "mobile"
                     value = "">
@@ -32,4 +41,27 @@
 
 </body>
 </html>
-<?php print_r($_POST);?>
+<?php
+    
+    function CheckValidation(){// function define/header
+        $error_log = array();
+       
+      if(isset($_POST) && !empty($_POST)){
+
+            if($_POST['name'] == ''){
+                $error_log ['name'] = 'The name is required';
+            }
+            if($_POST['email'] == ''){
+                $error_log ['email'] = 'The email is required';
+            }
+            if($_POST['mobile'] == ''){
+                $error_log ['mobile'] = 'The mobile is required';
+            }
+            if($_POST['message'] == ''){
+               $error_log ['message'] = 'The message is required';
+            }
+      }
+      return $error_log;
+    }
+ 
+?>
