@@ -54,7 +54,7 @@ if(!empty($_POST)){
         $error_log ['name'] =  $error_log ['email'] = $error_log ['mobile']  =  $error_log ['message']  =  '';
       if(isset($_POST) && !empty($_POST)){
 
-           if($_POST['name'] == ''){
+          if(trim($_POST['name']) == ''){
                 $error_log ['name'] = 'The name is required';
             }
             if($_POST['email'] == ''){
