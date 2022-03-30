@@ -33,7 +33,7 @@ foreach($array_result as $value){?>
  <td><?php echo $value['mobile'];?></td>
  <td><?php echo $value['message'];?></td>
  <td>
-     <a href="edit.php/<?php echo $value['id'];?>">Edit</a> | <a class="delete-anchor-nn"
+     <a href="edit.php/?id=<?php echo $value['id'];?>">Edit</a> | <a class="delete-anchor-nn"
    href="#">Delete</a></td>
 </tr>
 <?php } 
@@ -49,7 +49,7 @@ function FetchValue(){
 
     $array_result = array();
 
-        include "database.php";
+        include $_SERVER['DOCUMENT_ROOT']."/form/database.php";
         
         $return_value = false;
 
