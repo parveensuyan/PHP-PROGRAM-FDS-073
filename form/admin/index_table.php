@@ -24,3 +24,4 @@ foreach($array_result as $value){?>
 else{ ?>
     <p>NO RECORD FOUND</p>
 <?php }?>
+<script src="index.js"></script>
