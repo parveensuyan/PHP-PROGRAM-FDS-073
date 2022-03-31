@@ -11,7 +11,7 @@ $array_result = FetchValue();
     <title>All Record</title>
     <link rel="stylesheet" href="index.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+    
 </head>
 <body>
 <table id="customers">
@@ -38,7 +38,7 @@ function FetchValue(){
         }
         else 
         {
-        echo "Error " . $conn->error;
+        echo  $conn->error;
         }
         $conn->close();
         return $array_result;
