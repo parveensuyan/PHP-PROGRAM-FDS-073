@@ -1,5 +1,12 @@
 <?php
+session_start();
+$array_result = array();
+if(array_key_exists('user_id',$_SESSION)){
+if($_SESSION['user_id'] !='') {
+
 $array_result = FetchValue();
+}
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,9 +21,21 @@ $array_result = FetchValue();
     
 </head>
 <body>
+<?php if(!empty($array_result)){ ?>
 <table id="customers">
 <?php include "index_table.php"; ?>
 </table>
+    <a href="form/admin/logout.php" class="href">Logout</a>
+<?php }
+else{
+    ?>
+    <p>Please <a href="/form/admin/login.php">login</a></p>
+
+<?php
+}
+
+?>
+
 </body>
 </html>
 <?php
@@ -43,4 +62,7 @@ function FetchValue(){
         $conn->close();
         return $array_result;
     }
+
+
+
     ?>
