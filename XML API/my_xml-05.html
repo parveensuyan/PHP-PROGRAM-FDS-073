@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XML JavaScript</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+</head>
+<body>
+
+<div id="results"> </div>
+
+
+<script language="javascript">
+
+$.get("my_xml-02.xml", function(data) {
+
+	var i = 0;
+
+	$(data).find('bookstore').children('book').each(function(){
+		var sTitle = $(this).find('title').text();
+		var sAuthor = $(this).find('author').text();
+		var sYear = $(this).find('year').text();
+		var sPrice = $(this).find('price').text();
+
+		$("<p></p>").html("<b>" + sTitle + "</b>, " + sAuthor + ", " + sYear + ", " + sPrice).appendTo("#results");
+	i++;
+	});
+
+var sTotalBooks = i;
+$("<p></p>").html('<b>Total of books:</b> '+ sTotalBooks).prependTo("#results");
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<?xml-stylesheet type="text/xsl" href="stylesheet.xsl"?>
+<bookstore>
+	<book>
+		<title>Harry Potter</title>
+		<author>J K. Rowling</author>
+		<year>2005</year>
+		<price>29.99</price>
+		<photo>photos/hpotter.jpg</photo>
+	</book>
+	  <book>
+    		<title>L'avalée des avalés</title>
+    		<author>Réjean Ducharme</author>
+    		<year>1966</year>
+    		<price>39.95</price>
+		<photo>photos/avale.jpg</photo>
+  	</book>
+	<book>
+		<title>Le petit prince</title>
+		<author>Antoine de Saint-Exupéry</author>
+		<year>1943</year>
+		<price>19.99</price>
+		<photo>photos/pprince.jpg</photo>
+	</book>
+  	<book>
+    		<title>Les fleurs du mal</title>
+    		<author>Charles Baudelaire</author>
+    		<year>1857</year>
+    		<price>49.95</price>
+		<photo>photos/fleurs.jpg</photo>
+  	</book>
+  	<book>
+    		<title>Learning XML</title>
+    		<author>Erik T. Ray</author>
+    		<year>2003</year>
+    		<price>39.95</price>
+		<photo>photos/xml.jpg</photo>
+  	</book>
+  	<book>
+    		<title>Oeuvre complète</title>
+    		<author>Réjean Thomas</author>
+    		<year>2006</year>
+    		<price>14.99</price>
+		<photo>photos/poemes.jpg</photo>
+  	</book>
+</bookstore>
+
+

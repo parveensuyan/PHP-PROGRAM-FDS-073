@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XML JavaScript</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+</head>
+<body>
+
+<div id="demo"> </div>
+
+<script>
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        myFunction(this);
+    }
+};
+xhttp.open("GET", "my_xml-02.xml", true);
+xhttp.send();
+
+function myFunction(xml) {
+    var xmlDoc = xml.responseXML;
+    document.getElementById("demo").innerHTML =
+    xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue + "<br>" +
+    xmlDoc.getElementsByTagName("author")[0].childNodes[0].nodeValue + "<br>" +
+    xmlDoc.getElementsByTagName("year")[0].childNodes[0].nodeValue;
+}
+</script>
+
+</body>
+</html>
