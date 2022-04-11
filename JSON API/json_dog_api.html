@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON Example</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<style>
+		#mainHeading{
+			font-size:2.5em;
+			margin:1em;
+			padding:0.5em;
+			color:crimson;
+			background-color:cornsilk;
+			text-align: center;
+		}
+
+		.flexbox{
+			display:flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.break {
+	  		flex-basis: 100%;
+	  		text-align: center;
+		}
+
+		button{
+			font-size:1.5em;
+			color:gold;
+			background-color:crimson;
+			margin:0.8em;
+			padding:0.3em;
+		}
+
+		img{
+			max-height:500px;
+			max-width:500px;
+		}
+
+
+	</style>
+
+</head>
+
+<body>   
+
+
+    <p id="mainHeading"> JSON Example - Dog API </p>
+    <div class="flexbox"> 
+    	<div class="break"> <button> Load an image </button> </div>
+    	<div class="break"> 
+    		<img /> 
+    	</div>
+    </div>
+    
+    <script>
+
+		$(document).ready(function(){
+			
+			$("button").mouseover(function(){
+				$(this).css({"opacity":"0.8" , "box-shadow": "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)"});
+			});
+
+			$("button").mouseout(function(){
+				$(this).css({"opacity":"1", "box-shadow":"none"});
+			});
+
+
+			$("button").click(function(){
+				$.getJSON('https://dog.ceo/api/breeds/image/random', function(res){
+						console.log(res);
+					// console.log(res.message);
+					// console.log(res.status);
+					$("img").attr("src",res.message);
+					$("button").text("Load a new image!");
+				});
+			}); 
+		});
+
+	</script>
+
+
+</body>
+</html>
