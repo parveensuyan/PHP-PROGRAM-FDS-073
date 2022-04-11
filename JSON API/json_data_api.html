@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON Example - Makeup API</title>
+	<!--        Makeup API - http://makeup-api.herokuapp.com/       -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<style>
+
+		#mainHeading{
+			font-size:2.5em;
+			margin:1em;
+			padding:0.5em;
+			color:indigo;
+			background-color:lavender;
+			text-align: center;
+		}
+
+		.flexbox{
+			display:flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.break {
+	  		flex-basis: 90%;
+	  		text-align: center;
+		}
+
+		button{
+			font-size:1.5em;
+			color:black;
+			background-color:thistle;
+			margin:0.8em;
+			padding:0.3em;
+		}
+
+		img{
+			max-height:400px;
+			max-width:300px;
+		}
+
+	</style>
+
+</head>
+
+<body>   
+
+
+    <p id="mainHeading"> JSON Example - Makeup API </p>
+    <div class="flexbox"> 
+    	<div class="break"> <button> Click here to get data for your favourite brand!! </button> </div>
+    	<div class="break" id="output"> 
+ 
+    	</div>
+    </div>
+    
+    <script>
+
+		$(document).ready(function(){
+
+		    $("button").click(function(){
+
+		        var brand_name = prompt("Please enter the Brand Name:");
+		      	var url ="http://makeup-api.herokuapp.com/api/v1/products.json";
+		        
+		        $.getJSON(url,{brand:brand_name},function(result){
+		        	
+		        	var table = $('<table class="table table-bordered">').append('<thead class="thead-light"><tr><th>Product Id</th><th>Product Brand</th><th>Product Name</th><th>Product Price</th><th>Product Description</th><th>Product Image</th></tr></thead>');
+
+		            for (i =0; i<result.length; i++){
+		                table.append(
+		                    "<tbody><tr><td>"+result[i].id+
+		                    "</td><td>"+result[i].brand+
+		                    "</td><td>"+result[i].name+
+		                    "</td><td>"+result[i].price+
+		                    "</td><td>"+result[i].description+
+		                    "</td><td><img src='"+result[i].image_link+"'</td></tr></tbody>");
+		            }
+
+		            $("#output").html(table);
+
+		        });
+		    });
+		});
+
+	</script>
+
+
+</body>
+</html>
